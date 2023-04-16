@@ -5,6 +5,7 @@ sign=null
 vk_user_id=null
 vk_ts=null
 vk_ref=null
+user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36"
 
 function authenticate() {
 	# 1 - sign: (string): <sign>
@@ -28,14 +29,14 @@ function authenticate() {
 function get_config() {
 	curl --request GET \
 		--url "$api/config" \
-		--user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36" \
+		--user-agent "$user_agent" \
 		--header "auth: Vt $params"
 }
 
 function get_account_info() {
 	curl --request POST \
 		--url "$api/user" \
-		--user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36" \
+		--user-agent "$user_agent" \
 		--header "auth: Vt $params"
 }
 
@@ -43,7 +44,7 @@ function get_tasks() {
 	# 1 - task: (string): <task - default: task_daily>
 	curl --request POST \
 		--url "$api/tasks?task=${1:-task_daily}" \
-		--user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36" \
+		--user-agent "$user_agent" \
 		--header "auth: Vt $params"
 }
 
@@ -51,13 +52,13 @@ function get_rating() {
 	# 1 - limit: (integer): <limit - default: 100>
 	curl --request POST \
 		--url "$api/rating?limit=${1:-100}" \
-		--user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36" \
+		--user-agent "$user_agent" \
 		--header "auth: Vt $params"
 }
 
 function start_game() {
 	curl --request POST \
 		--url "$api/game/v2/start" \
-		--user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36" \
+		--user-agent "$user_agent" \
 		--header "auth: Vt $params"
 }
