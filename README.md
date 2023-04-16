@@ -3,6 +3,6 @@ Web-API for [guess word](https://vk.com/app8009085) an vk service to check how m
 
 ## Example
 ```bash
-source guess_word.sh
+source ./guess_word.sh
 authenticate "sign" "vk_user_id" "vk_ts" "vk_ref"
 ```
